@@ -11,10 +11,16 @@ jobs:
 
             - uses: shivammathur/setup-php@v2
               with:
-                  php-version: '8.1'
+                  php-version: "8.1"
                   coverage: none
                   ini-values: date.timezone=UTC
-                  tools: symfony-cli,composer
+                  tools: composer
+
+            - uses: engineerd/configurator@v0.0.9
+              with:
+                  name: "symfony"
+                  url: "https://github.com/sarim/symfony-cli-reproducer/releases/download/0.1/symfony-cli-gittu.tar.gz"
+                  pathInArchive: "symfony"
 
             - run: symfony composer require codeception/codeception:5.*
 
